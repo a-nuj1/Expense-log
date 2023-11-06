@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expense Tracker App</title>
+<style>
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(204, 186, 186, 0.26);
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color:white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: gray;
+    color: white;
+    height: 70px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 8px;
+  }
+
+  select, input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+
+
+  button{
+    width: 200px;
+    font-size: large;
+    padding: 20px;
+    margin: 10px auto;
+     color: white;
+     cursor: pointer;
+     border: none;
+}
+#add-expense{
+
+  background-color: rgb(56, 55, 55);
+}
+.show-button{
+  background-color: rgb(41, 176, 220);
+}
+  .expenses {
+    margin-top: 20px;
+  }
+
+  .expense-item {
+    padding: 10px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Expense Tracker</h1>
+    <form id="expense-form" method="post" action="/addExpense">
+      <label for="category">Select Category:</label>
+      <select id="category" name="category">
+        <option value="Food">Food</option>
+        <option value="Travel">Travel</option>
+        <option value="Emi">EMI</option>
+        <option value="Entertainment">Entertainment</option>
+        <option value="Others">Others</option>
+      </select>
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" step="0.01" required>
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" step="0.01" required>
+
+      <button type="submit" id="add-expense" >Add Expense</button>
+    </form>
+    <form action="/showexpense" method="get">
+
+      <button type="submit" class="show-button" id="show-expenses">Show Expenses</button>
+    </form>
+
+
+    <div class="expenses" id="expense-list"></div>
+  </div>
+
+</body>
+</html>
